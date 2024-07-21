@@ -1,15 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import LandingPage from './pages/landing';
 import reportWebVitals from './reportWebVitals';
+import {createHashRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
+import TodoApp from './pages/todoapp';
+import { ErrorPage } from './pages/error';
+
+const router = createHashRouter(
+  [
+    {
+      path: '/',
+      element: <LandingPage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: '/app',
+      element: <TodoApp />,
+      children: [
+        {
+          path: '/app/1',
+          element: <div>the todo App outlet</div>
+        },
+      ]
+    },
+  ]
+  // createRoutesFromElements(
+  //   <Route path="/" element={<LandingPage />} errorElement={<LandingPage />}>
+  //     <Route path="app/"  element={<TodoApp />}/>
+  //   </Route>
+  // )
+)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={ router }/>
   </React.StrictMode>
 );
 
