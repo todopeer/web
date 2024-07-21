@@ -6,9 +6,10 @@ It's created using CreateReactApp, planning to be published under gh-pages
 
 ## TODO
 
-- [ ] publish basic version for gh-pages
-    - [ ] can build locally
-    - [ ] push to gh-pages branch
+- [x] publish basic version for gh-pages (2024-07-21)
+    - [x] can build locally
+    - [x] push to gh-pages branch
+    - [x] config DNS
 - [ ] add a landing page
 
 
