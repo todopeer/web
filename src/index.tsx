@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {createHashRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
 import TodoApp from './pages/todoapp';
 import { ErrorPage } from './pages/error';
+import LoginPage from './pages/auth/login';
+import RegisterPage from './pages/auth/register';
 
 const router = createHashRouter(
   [
@@ -24,12 +26,15 @@ const router = createHashRouter(
         },
       ]
     },
+    {
+      path: '/login',
+      element: <LoginPage />,
+    },
+    {
+      path: '/register',
+      element: <RegisterPage />,
+    },
   ]
-  // createRoutesFromElements(
-  //   <Route path="/" element={<LandingPage />} errorElement={<LandingPage />}>
-  //     <Route path="app/"  element={<TodoApp />}/>
-  //   </Route>
-  // )
 )
 
 const root = ReactDOM.createRoot(
